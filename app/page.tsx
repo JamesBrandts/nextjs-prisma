@@ -1,16 +1,13 @@
-import { getPosts } from "./api/models/post"
-import type { Post } from "./api/models/post"
+import { PrismaClient } from '@prisma/client'
+import type { Post } from '@prisma/client'
+const prisma = new PrismaClient()
 
-export default async function Posts() {
-  const posts: Post[] = await getPosts()
+export default async function Page() {
   return (
-    <main>
-        {posts.map((post: any) => (
-          <div key={post.id}>
-            <h3>{post.title}</h3>
-            <p>{post.content}</p>
-          </div>
-        ))}
-    </main>
+    <div className=''>
+      <main className='flex flex-col gap-4 justify-between h-full'>
+        <h1 className='text-4xl'>Index Page</h1>
+      </main>
+    </div>
   )
 }

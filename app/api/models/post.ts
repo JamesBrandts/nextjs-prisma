@@ -39,3 +39,8 @@ export function deletePost(id: number): Promise<Post> {
 export function getPosts(): Promise<Post[]> {
     return prisma.post.findMany()
 }
+
+export async function createNewPost(event: React.FormEvent<HTMLFormElement>){
+    event.preventDefault()
+    console.log({ event})
+}
